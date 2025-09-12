@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import dotenv from "dotenv";
 import environment from "vite-plugin-environment";
 import path from "path";
-import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
+import tanstackRouter from "@tanstack/router-plugin/vite";
 
 dotenv.config({ path: ".env" });
 
@@ -29,7 +29,7 @@ export default defineConfig({
     },
   },
   plugins: [
-    TanStackRouterVite({
+    tanstackRouter({
       target: "react",
       autoCodeSplitting: true,
       routesDirectory: "./src/frontend/routes",
