@@ -106,6 +106,13 @@ pnpm run dev
 	<tbody>
 		<tr>
             <td align="center">
+                <a href="https://github.com/b3hr4d">
+                    <img src="https://avatars.githubusercontent.com/u/35742176?v=4" width="100;" alt="b3hr4d"/>
+                    <br />
+                    <sub><b>Behrad Deylami</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/kristoferlund">
                     <img src="https://avatars.githubusercontent.com/u/9698363?v=4" width="100;" alt="kristoferlund"/>
                     <br />
