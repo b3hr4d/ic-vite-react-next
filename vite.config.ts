@@ -1,15 +1,17 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
-import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
+import tailwindcss from "@tailwindcss/vite";
 import dotenv from "dotenv";
 import environment from "vite-plugin-environment";
+import path from "path";
+import tanstackRouter from "@tanstack/router-plugin/vite";
 
 dotenv.config({ path: ".env" });
 
 // https://vite.dev/config/
 export default defineConfig({
   build: {
-    outDir: 'src/frontend/dist'
+    outDir: "src/frontend/dist",
   },
   optimizeDeps: {
     esbuildOptions: {
@@ -27,12 +29,20 @@ export default defineConfig({
     },
   },
   plugins: [
+    tanstackRouter({
+      target: "react",
+      autoCodeSplitting: true,
+      routesDirectory: "./src/frontend/routes",
+      generatedRouteTree: "./src/frontend/routeTree.gen.ts",
+    }),
     react(),
     environment("all", { prefix: "CANISTER_" }),
     environment("all", { prefix: "DFX_" }),
-    tailwindcss()
+    tailwindcss(),
   ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src/frontend/"),
+    },
+  },
 });
-
-
-
